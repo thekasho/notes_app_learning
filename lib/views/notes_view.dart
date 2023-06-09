@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:notter/views/widgets/add_note_bottom_sheet.dart';
 import 'package:notter/views/widgets/notes_view_body.dart';
 
+import '../constants.dart';
+
 class NotesView extends StatelessWidget {
   const NotesView({Key? key}) : super(key: key);
 
@@ -18,6 +20,7 @@ class NotesView extends StatelessWidget {
             builder: (context) => const AddNoteBottomSheet(),
           );
         },
+        backgroundColor: kPrimaryColor,
         child: const Icon(Icons.add),
       ),
       body: const SafeArea(
