@@ -11,9 +11,9 @@ class AddNoteCubit extends Cubit<AddNoteState> {
 
   // start logic from here
   addNote(NoteModel note) async {
-
     // return state of loading.
     emit(AddNoteLoading());
+
     try {
       // define our hive worker
       var notesBox = Hive.box<NoteModel>(kNotesBox);
@@ -23,9 +23,9 @@ class AddNoteCubit extends Cubit<AddNoteState> {
 
       // return state of success
       emit(AddNoteSuccess());
-
     } catch (e) {
       // return state if failure with error exception
+      // emit(AddNoteFailure('Error on catch: ${e.toString()}'));
       emit(AddNoteFailure(e.toString()));
     }
   }

@@ -16,7 +16,7 @@ void main() async {
 
   // initialize hive adaptor to be able to use it.
   await Hive.initFlutter();
-  await Hive.openBox(kNotesBox);
+  await Hive.openBox<NoteModel>(kNotesBox);
 
   // registe hive adaptor in order to deal with it
   Hive.registerAdapter(NoteModelAdapter());
