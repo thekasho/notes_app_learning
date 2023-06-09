@@ -1,4 +1,5 @@
 class NoteModel {
+
   final String title;
   final String subTitle;
   final String date;
@@ -10,4 +11,5 @@ class NoteModel {
     required this.date,
     required this.color,
   });
+
 }
