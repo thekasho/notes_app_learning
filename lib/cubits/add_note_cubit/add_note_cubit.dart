@@ -25,8 +25,8 @@ class AddNoteCubit extends Cubit<AddNoteState> {
       emit(AddNoteSuccess());
     } catch (e) {
       // return state if failure with error exception
-      // emit(AddNoteFailure('Error on catch: ${e.toString()}'));
-      emit(AddNoteFailure(e.toString()));
+      emit(AddNoteFailure('Error on catch: ${e.toString()}'));
+      // emit(AddNoteFailure(e.toString()));
     }
   }
 }
