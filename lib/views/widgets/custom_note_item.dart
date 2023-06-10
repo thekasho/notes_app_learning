@@ -64,7 +64,7 @@ class NoteItem extends StatelessWidget {
                 },
                 icon: const Icon(
                   FontAwesomeIcons.trash,
-                  color: Colors.black,
+                  color: Color(0xff9C2D41),
                   size: 24.0,
                 ),
               ),

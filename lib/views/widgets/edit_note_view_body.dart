@@ -4,6 +4,7 @@ import 'package:notter/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notter/views/widgets/custom_app_bar.dart';
 import '../../models/note_model.dart';
 import 'custom_text_fiedls.dart';
+import 'edit_note_colors_list_view.dart';
 
 class EditNoteViewBody extends StatefulWidget {
   const EditNoteViewBody({Key? key, required this.note}) : super(key: key);
@@ -15,7 +16,6 @@ class EditNoteViewBody extends StatefulWidget {
 }
 
 class _EditNoteViewBodyState extends State<EditNoteViewBody> {
-
   String? title, content;
 
   @override
@@ -27,7 +27,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
           children: [
             const SizedBox(height: 20.0),
             CustomAppBar(
-              onPress: (){
+              onPress: () {
                 widget.note.title = title ?? widget.note.title;
                 widget.note.subTitle = content ?? widget.note.subTitle;
                 widget.note.save();
@@ -38,13 +38,16 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               icon: Icons.check,
             ),
             const SizedBox(height: 20.0),
-            CustomTextField(hint: widget.note.title, onChanged: (value) => title = value),
+            CustomTextField(
+                hint: widget.note.title, onChanged: (value) => title = value),
             const SizedBox(height: 20.0),
             CustomTextField(
               onChanged: (value) => content = value,
               hint: widget.note.subTitle,
               maxLines: 4,
             ),
+            const SizedBox(height: 20.0),
+            EditNoteColorsList(note: widget.note),
           ],
         ),
       ),
