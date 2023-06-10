@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../../models/note_model.dart';
 import '../edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({Key? key}) : super(key: key);
+  const NoteItem({Key? key, required this.note}) : super(key: key);
+
+  final NoteModel note;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const EditNoteView()));
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const EditNoteView()));
       },
       child: Container(
         padding: const EdgeInsets.only(
@@ -18,18 +22,18 @@ class NoteItem extends StatelessWidget {
           left: 16.0,
         ),
         decoration: BoxDecoration(
-          color: const Color(0xffFCCE7F),
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(16.0),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Padding(
-                padding: EdgeInsets.only(bottom: 16.0),
+              title: Padding(
+                padding: const EdgeInsets.only(bottom: 16.0),
                 child: Text(
-                  'Flutter Tips',
-                  style: TextStyle(
+                  note.title,
+                  style: const TextStyle(
                     color: Colors.black,
                     fontSize: 26.0,
                   ),
@@ -38,7 +42,7 @@ class NoteItem extends StatelessWidget {
               subtitle: Padding(
                 padding: const EdgeInsets.only(bottom: 16.0),
                 child: Text(
-                  'Build Your Career with Kasho and much more..',
+                  note.subTitle,
                   style: TextStyle(
                     color: Colors.black.withOpacity(0.5),
                     fontSize: 18.0,
@@ -57,7 +61,8 @@ class NoteItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 24.0),
               child: Text(
-                'May 21, 2023',
+                // DateFormat('EEEE, MMM d, yyyy').format( DateTime.parse(note.date) ),
+                note.date,
                 style: TextStyle(
                   color: Colors.black.withOpacity(0.5),
                   fontSize: 16.0,
