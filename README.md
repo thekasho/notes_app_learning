@@ -1,6 +1,6 @@
 # notter
 
-A new Flutter project.
+Learning Flutter with simple note app built with cubit.
 
 ## Getting Started
 
