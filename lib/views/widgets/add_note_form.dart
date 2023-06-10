@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:notter/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notter/models/note_model.dart';
+import 'colors_list_view.dart';
 import 'custom_button.dart';
 import 'custom_text_fiedls.dart';
 
@@ -44,6 +45,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
               subtitle = value;
             },
           ),
+          const SizedBox(height: 24.0),
+          const ColorsListView(),
           const SizedBox(height: 50.0),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
@@ -57,7 +60,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     var noteModel = NoteModel(
                       title: title!,
                       subTitle: subtitle!,
-                      date: DateFormat('EEEE, MMM d, yyyy').format(DateTime.now()).toString(),
+                      date: DateFormat('EEEE, MMM d, yyyy')
+                          .format(DateTime.now())
+                          .toString(),
                       color: Colors.blue.value,
                     );
 
